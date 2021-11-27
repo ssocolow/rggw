@@ -8,6 +8,19 @@ function addToGroup() {
   num++;
 }
 
+function rememberNames() {
+  group = JSON.parse(localStorage.names);
+  num = 0;
+  for(let n in group){
+    addToTable(group[n],num);
+    num++;
+  }
+}
+
+function forget() {
+  localStorage.clear();
+
+}
 function addToTable(name, num) {
   let table = document.getElementById("listnametable");
   let row = table.insertRow(-1);
@@ -20,6 +33,7 @@ function addToTable(name, num) {
   cell3.innerHTML = '<input type="button" value="Delete" onclick="deleteRow(' + num + ')"/>';
   //change border color to random rgb
   changeColor();
+  localStorage.setItem("names",JSON.stringify(group));
 }
 
 function changeColor() {
