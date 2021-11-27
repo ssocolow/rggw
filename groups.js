@@ -19,9 +19,20 @@ function addToTable(name, num) {
   cell2.innerHTML = name;
   cell3.innerHTML = '<input type="button" value="Delete" onclick="deleteRow(' + num + ')"/>';
   //change border color to random rgb
-  //changeColor();
+  changeColor();
 }
 
+function changeColor() {
+  let myElements = document.querySelectorAll(".center");
+  myElements.forEach(element => {
+    element.style.border = "3px solid rgb(" + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255) + ")";
+  });
+  //for (let i = 0; i < myElements.length; i++) {
+    //myElements[i].style.border = "100px " + "solid " + "rgb(" + Math.random()*255 + "," + Math.random()*255 + "," + Math.random()*255 + ");";
+    //console.log(myElements[i].style);
+  //}
+
+}
 
 function deleteRow(num1) {
   let table = document.getElementById("listnametable");
