@@ -2,22 +2,45 @@
 <html>
  <head>
    <title>RGGW</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" href="styles.css">
+   <script src="groups.js"></script>
  </head>
  <body>
  <div class="center">
    <h1 class="rainbow-text">Random Group Generator</h1>
    <h4>made by Simon Socolow so Mrs. Hayes/Roberts doesn't have to use ad-filled websites for simple, noble task</h4>
  </div>
- <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+ <div class="center">
+  <form onsubmit="addToGroup(); return false;">
+    <label for="name">Enter Student Name: </label><br>
+    <input type="text" id="name" name="sname">
+    <button type="button" onclick="addToGroup()">Submit</button>
+  </form>
+ </div>
+ <div class="center">
+   <table class="table" id="listnametable">
+     <tr>
+       <th scope="col">Number</th>
+       <th scope="col">Student Name</th>
+     </tr>
+   </table>
+ </div>
+ <h3 class="center">Pick Minimum Size of Random Groups</h3>
+ <div class="center">
+   <button type="button" class="btn btn-primary btn-lg" onclick="r(2)">2</button>
+   <button type="button" class="btn btn-primary btn-lg" onclick="r(3)">3</button>
+   <button type="button" class="btn btn-primary btn-lg" onclick="r(4)">4</button>
+   <button type="button" class="btn btn-primary btn-lg" onclick="r(5)">5</button>
+   <button type="button" class="btn btn-primary btn-lg" onclick="r(6)">6</button>
+ </div>
+ <div id="rgroups" class="center">
+   <h3>Groups:</h3>
+ </div>
+<div class="center">
+  <button type="button" class="btn btn-danger" onclick="reRandomize()">Randomize Again</button>
+ </div>
 
-  <!-- Load our React component. -->
-  <script src="nametable.js"></script>
-
- <NameTable>
 
  </body>
 </html>
