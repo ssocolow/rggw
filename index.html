@@ -15,6 +15,12 @@
   <form onsubmit="addToGroup(); return false;">
     <label for="name">Enter Student Name: </label><br>
     <input type="text" id="name" name="sname">
+    <select class="form-select" id="classid" onchange="changeClass()">
+      <option value="c1">Class A</option>
+      <option value="c2">Class B</option>
+      <option value="c3">Class C</option>
+      <option value="c4">Class D</option>
+    </select>
     <button type="button" onclick="addToGroup()">Submit</button>
     <button type="button" onclick="rememberNames()">Remember</button>
     <button type="button" onclick="forget()">Forget</button>
