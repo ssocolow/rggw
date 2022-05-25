@@ -9,7 +9,7 @@ function addToGroup() {
 }
 
 function rememberNames() {
-  group = JSON.parse(localStorage.names);
+  group = JSON.parse(localStorage.getItem("names" + document.getElementById("classid").value));
   num = 0;
   for(let n in group){
     addToTable(group[n],num);
@@ -19,8 +19,8 @@ function rememberNames() {
 
 function forget() {
   localStorage.clear();
-
 }
+
 function addToTable(name, num) {
   let table = document.getElementById("listnametable");
   let row = table.insertRow(-1);
@@ -33,7 +33,7 @@ function addToTable(name, num) {
   cell3.innerHTML = '<input type="button" value="Delete" onclick="deleteRow(' + num + ')"/>';
   //change border color to random rgb
   changeColor();
-  localStorage.setItem("names",JSON.stringify(group));
+  localStorage.setItem("names" + document.getElementById("classid").value,JSON.stringify(group));
 }
 
 function changeColor() {
@@ -72,7 +72,7 @@ function r(n) {
   lastmingsize = n;
   let cgroup = Array.from(group);
   shuffle(cgroup);
-  
+
   let gnames = [];
   let numofgroups = Math.floor(cgroup.length / n);
   //console.log(numofgroups);
@@ -123,4 +123,8 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function changeClass(){
+    group = [];
 }
